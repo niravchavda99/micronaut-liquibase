@@ -1,0 +1,24 @@
+micronaut:
+  application:
+    name: micronautLiquibase
+datasources:
+  default:
+    url: jdbc:mariadb://localhost:3306/lqdb
+    driverClassName: org.mariadb.jdbc.Driver
+    username: root
+    password: root
+    schema-generate: NONE
+    dialect: MYSQL
+netty:
+  default:
+    allocator:
+      max-order:
+liquibase:
+  enabled: true
+  datasources:
+    default:
+      change-log: 'classpath:db/liquibase-changelog.xml'
+endpoints:
+  liquibase:
+    enabled: true
+    sensitive: false
